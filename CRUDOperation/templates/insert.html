@@ -1,0 +1,49 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee</title>   
+</head>  
+<body> 
+    <center> 
+        <form method="POST"> 
+            {% csrf_token %} 
+        <table class="table table-striped table-bordered table-sm" border='1'>  
+            <tr>
+                <td> Employee ID</td>
+                <td> <input type='text' placeholder='Enter Employee ID' name='id' required=True></td>
+            </tr>   
+            <tr>
+                <td> Employee Name</td>
+                <td> <input type='text' placeholder='Enter Employee Name' name='ename' required=True></td>
+            </tr>  
+            <tr>
+                <td> Employee Contact</td>
+                <td> <input type='text' placeholder='Enter Employee Contact' name='contact' required=True></td>
+            </tr>  
+            <tr>
+                <td> Employee Salary</td>
+                <td> <input type='text' placeholder='Enter Employee Salary' name='salary' required=True></td>
+            </tr>  
+            <tr>
+                <td> Employee Gender</td>
+                <td> <input type='radio' , name='gender' value='M'>Male <input type='radio' , name='gender' value='F' required=True>Female|</td>
+            </tr>                  
+            <tr>
+                <td><input type="submit" value="Insert"></td>
+                <td> 
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style="color: green;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %} 
+                </td>
+            </tr>
+            
+        </table>  
+        <a href="{% url 'showemp' %}">Home Page</a>
+        
+    </form>
+    </center>
+</body>
+</html>
